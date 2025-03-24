@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة لكِ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            opacity: 0;
+        }
+        h1 {
+            color: #ffebee;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: red;
+            clip-path: polygon(50% 15%, 85% 15%, 100% 40%, 50% 100%, 0% 40%, 15% 15%);
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-100px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>رسالة لكِ</h1>
+        <p>
+            عارفه، حاسس كده إن في حاجات كثير قوي مالهاش آخر جوايا وعايز أقولها لك، بس مش عارف، ولا أي حاجة هتوصف بجد اللي جوايا ليكي. 
+            طب عارفه إنك قمر خالص في كل حاجة؟ أصلاً لما بتكوني معايا بحس إن روحي رجعت لي. بحس بحاجات كثيرة حلوة، أقسم بالله! يمكن من كتر الحب اللي بحبه ليكي، ومستغرب من نفسي، والله أول مرة أحب حد في حياتي كده. 
+            بحس إني مالك الدنيا كلها وإنتي معايا. بجد، يعني، بيبقى معايا أغلى حاجة في حياتي وأكتر حاجة بحبها في حياتي. 
+            <br><br>
+            بحبكككككككككككككككككككككككككك! بس مش بحبك، أنا بعشقك.❤️
+        </p>
+    </div>
+    <script>
+        gsap.to(".container", {opacity: 1, duration: 2, ease: "power2.out"});
+
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
